@@ -1,0 +1,41 @@
+# GoLand specific
+.idea/
+
+# Compiled binary files
+*.exe
+*.out
+
+# Log files and crash reports
+*.log
+*.crash
+
+# Directory for profiling data
+pprof/
+
+# Testing and benchmarking tool
+testing.bench
+
+# Compiled Object files, Static and Dynamic libraries (Shared Objects)
+*.o
+*.a
+*.so
+
+# Go binary
+/bin
+
+# Generated parser files
+*.output
+
+# Dependency directories (Godeps, vendor)
+/Godeps/
+
+# macOS specific files
+.DS_Store
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
