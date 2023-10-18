@@ -1,9 +1,17 @@
 package main
 
-import "wordle_cli/src/service"
+import (
+	"wordle_cli/config"
+	"wordle_cli/flags"
+	_ "wordle_cli/flags"
+
+	"wordle_cli/src/service"
+)
 
 func main() {
-	service.GameOrchestrator.Play(5, "practice")
+	gamemode := config.V.GetString(flags.Mode)
+	length := config.V.GetInt(flags.Length)
+	service.GameOrchestrator.Play(length, gamemode)
 }
 
 /*

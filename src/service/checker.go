@@ -40,7 +40,7 @@ func (c *Checker) Check(correctWord string, inputWord string) (string, error) {
 		if inputWord[i] == correctWord[i] {
 			checked += "G"
 		} else {
-			if usedAlphaCount[rune(inputWord[i])] > alphaCount[rune(inputWord[i])] {
+			if alphaCount[rune(inputWord[i])] == 0 && usedAlphaCount[rune(inputWord[i])] > 0 {
 				checked += "B"
 			} else {
 				checked += "Y"

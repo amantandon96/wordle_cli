@@ -23,6 +23,11 @@ func TestPrinter_Print(t *testing.T) {
 			validatedStr: "GGYBB",
 			inputStr:     "ABCDE",
 		},
+		{
+			name:         "Case-3",
+			validatedStr: "GBBYY",
+			inputStr:     "ABBCD",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

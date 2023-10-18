@@ -10,7 +10,6 @@ import (
 
 type IGameDao interface {
 	Create(game models.Game, varargs ...interface{}) (int, error)
-	//Attempt(attempt models.Attempt) error
 	Get(id int, varargs ...interface{}) (models.Game, error)
 	Update(gameId int, state string, varargs ...interface{}) error
 }
