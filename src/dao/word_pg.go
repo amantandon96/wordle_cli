@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	_ "github.com/lib/pq"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type WordDaoPg struct {
@@ -20,7 +20,7 @@ func (w *WordDaoPg) Start(length int, mode string, varargs ...interface{}) (stri
 			return "", err
 		}
 	}
-	query := `select w.word from words as w left outer join game as g on w.word=g.word where w.length=$1 order by coalesce(g.created_at, '1970-12-01 00:00:00'),gen_random_uuid() limit 1 for update of w`
+	query := `select w.word from words as w left outer join game as g on w.word=g.word where w.length=$1 order by coalesce(g.created_at, '1970-12-01 00:00:00'),random() limit 1`
 	row := txn.QueryRow(query, length)
 	var word string
 	err := row.Scan(&word)

@@ -10,7 +10,6 @@ import (
 
 type IGameDao interface {
 	Create(game models.Game, varargs ...interface{}) (int, error)
-	//Attempt(attempt models.Attempt) error
 	Get(id int, varargs ...interface{}) (models.Game, error)
 	Update(gameId int, state string, varargs ...interface{}) error
 }
@@ -97,7 +96,7 @@ func (g *GameDaoPg) Get(id int, varargs ...interface{}) (models.Game, error) {
 		}
 	}
 	query := `select g.id as id, g.word as word, g.mode as mode, g.state as state, g.created_at as created_at, a.attempt_num as attempt_num, a.attempted_word as attempted_word, att.max_attempts as max_attempts 
-from game as g left join game_log as a on g.id=a.game_id left join attempts as att on length(g.word)=att.word_len where id=$1 for update of g`
+from game as g left join game_log as a on g.id=a.game_id left join attempts as att on length(g.word)=att.word_len where id=$1`
 	rows, err := txn.Query(query, id)
 	if err != nil {
 		return models.Game{}, err

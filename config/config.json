@@ -1,7 +1,3 @@
 {
-  "DB_NAME": "wordle",
-  "DB_USER": "postgres",
-  "DB_HOST": "localhost",
-  "DB_PORT": "5432",
-  "DB_PASS": "password"
+  "SQLITE_DB_PATH": "/Users/${current_user}/.wordle-cli/wordle.db"
 }
